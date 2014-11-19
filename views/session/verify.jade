@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  h1 Just To Be Safe...
+
+  p.
+    Thanks for inputing your username and password. We're contacting
+    you on your mobile phone now to validate that it's really you.
+    Enter your confirmation code below.
+
+  .row
+    .col-md-12
+      +formFor('/sessions/verify/'+sessionId)
+
+        .form-group
+          label(for='code') Confirmation Code
+          input(type='text', name='code', class='form-control')
+
+        button(type='submit', class='btn btn-primary') Verify Account
+        button#resend(type='button', class='btn btn-link') Resend Code
+
+block scripts
+  script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+
+  // Client-side JS to resend code via Ajax
+  script(src='/resend.js')

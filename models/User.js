@@ -56,7 +56,7 @@ User.login = function(username, password, callback) {
         if (candidateUser.password === password) {
             // At this point, can reverse the error and hydrate a user object
             error = null;
-            user = new User(candidateUser.username, candidateUser.fullName);
+            user = candidateUser;
         }
     }
 

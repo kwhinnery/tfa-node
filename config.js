@@ -16,5 +16,9 @@ cfg.secret = 'keyboard cat';
 cfg.accountSid = process.env.TWILIO_ACCOUNT_SID;
 cfg.authToken = process.env.TWILIO_AUTH_TOKEN;
 
+// A Twilio number you control - choose one from:
+// https://www.twilio.com/user/account/phone-numbers/incoming
+cfg.twilioNumber = process.env.TWILIO_NUMBER;
+
 // Export configuration object
 module.exports = cfg;
