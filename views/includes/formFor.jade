@@ -1,0 +1,10 @@
+// Create a form tag for the given path and method, including a CSRF token
+mixin formFor(path, method, styleClass)
+  // Append a method to the query string if it's anything but a POST
+  - if (method && method != 'POST') { path = path + '?_method=' + method; }
+
+  // Create a form
+  form(action=path, method='POST', role='form', class=styleClass)
+    input(type='hidden', name='_csrf', value=locals._csrf)
+    // yield to the rest of the form content
+    block

@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  h1 Log In To Your Account
+
+  .row
+    .col-md-12
+      +formFor('/login')
+        .form-group
+          label(for='username') Your User Name
+          input(type='text', name='username', class='form-control')
+
+        .form-group
+          label(for='password') Password
+          input(type='password', name='password', class='form-control')
+
+        button(type='submit', class='btn btn-primary') Log In

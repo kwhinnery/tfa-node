@@ -1,0 +1,30 @@
+#main {
+    margin-top:10px;
+    max-width:720px;
+}
+
+#account {
+    float:right;
+}
+
+td, th {
+    padding:10px;
+}
+
+.login {
+    float:right;
+    margin:10px 5px 0 0;
+}
+
+.login input {
+    display:inline;
+}
+
+#message {
+    padding:10px 10px 0 10px;
+    border-radius:5px;
+}
+
+#message p {
+    padding:0 0 10px 0;
+}

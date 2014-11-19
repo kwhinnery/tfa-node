@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  h1= user.fullName + ' (' + user.username + ')'
+  table
+    tr
+      th Phone Number
+      td= user.phone
+    tr
+      th Contact Preference
+      td= user.contactType

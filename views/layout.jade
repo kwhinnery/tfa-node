@@ -1,0 +1,54 @@
+// Include global mixins
+include includes/formFor
+
+// Main template
+doctype html
+html(lang='en')
+  head
+    title= title || '2FA Demo'
+
+    // Twitter Bootstrap included for some basic styling
+    link(rel='stylesheet', 
+      href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    link(rel='stylesheet', 
+      href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css')
+
+    // App-specific stylesheet
+    link(rel='stylesheet', href='/style.css')
+
+  body
+    #main.container
+
+      // App nav bar
+      nav(class='navbar navbar-default', role='navigation')
+
+        // Link back to the home page
+        a(class='navbar-brand', href='/') 2FA Demo
+
+        #account
+          p(class='navbar-text')
+            if user
+              span Welcome&nbsp;
+              a(href='/users/'+user.username)= user.fullName
+              span !
+              +formFor('/logout', 'DELETE', 'login')
+                input.btn.btn-default.btn-sm(type='submit', value='Log Out')
+            else
+              // Show Login links while unauthenticated
+              a(href='/login') Log In
+              span &nbsp;or&nbsp;
+              a(href='/signup') Sign Up
+
+      // Render flash messages
+      mixin plist(type, list)
+        #message(class='bg-'+type)
+          each msg in list
+            p= msg
+
+      // Include any flash messages needed
+      each type in ['danger', 'info', 'success', 'warning', 'primary']
+        if locals[type]
+          +plist(type, locals[type])
+
+      // Yield to page content
+      block content
