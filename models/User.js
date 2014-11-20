@@ -1,4 +1,4 @@
-var Joi = require('Joi');
+var Joi = require('joi');
 
 // A mock database with users and passwords
 var database = {};
