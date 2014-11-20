@@ -5,10 +5,10 @@ var User = require('../models/User');
 // associated with it
 var middleware = function() {
     return function(request, response, next) {
-        var sessionId = request.session.sessionId;
-        if (sessionId) {
+        var sessionToken = request.session.sessionToken;
+        if (sessionToken) {
             // see if we have a session for this ID
-            Session.findById(sessionId, function(err, session) {
+            Session.findByToken(sessionToken, function(err, session) {
                 if (err || !session) return next();
                 request.user = session.user;
                 response.locals.user = session.user;

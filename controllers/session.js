@@ -78,7 +78,7 @@ exports.verify = function(request, response, next) {
                         response.redirect('/sessions/verify/'+session.id);
                     } else {
                         // if all is well, create a session for the user
-                        request.session.sessionId = session.id;
+                        request.session.sessionToken = session.token;
                         request.flash('success', 'Welcome back, '
                             + session.user.fullName + '!');
                         response.redirect('/users/'+session.user.username);
@@ -128,14 +128,22 @@ exports.ajaxResendCode = function(request, response) {
 
 // Log a user out
 exports.destroy = function(request, response) {
-    var sessionId = request.session.sessionId;
-    request.session.sessionId = null;
-    Session.destroy(sessionId, function(err) {
-        if (err) {
-            request.flash('danger', 'Logout failed - please retry');
-        } else {
-            request.flash('info', 'You have been logged out.');
+    var fail = 'Logout failed - please retry.';
+    var sessionToken = request.session.sessionToken;
+    request.session.sessionToken = null;
+    Session.findByToken(sessionToken, function(err, session) {
+        if (err || !session) {
+            request.flash('danger', fail);
             response.redirect('/');
+        } else {
+            Session.destroy(session.id, function(err) {
+                if (err) {
+                    request.flash('danger', fail);
+                } else {
+                    request.flash('info', 'You have been logged out.');
+                }
+                response.redirect('/');
+            });
         }
     });
 };

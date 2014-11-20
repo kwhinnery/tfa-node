@@ -69,11 +69,15 @@ function readCode(code) {
 }
 
 // Create a session for a given unique user, with a randomly generated ID
+// to identify it and another to store in session
 function Session(user) {
     this.user = user;
     this.verified = false;
     this.id = speakeasy.generate_key({
-        length: 30
+        length: 32
+    }).hex;
+    this.token = speakeasy.generate_key({
+        length: 64
     }).hex;
 }
 
@@ -117,6 +121,28 @@ Session.findById = function(sessionId, callback) {
     // simulate latency and trigger callback
     setTimeout(function() {
         callback.call(this, error, session);
+    }, 50);
+};
+
+// Find a session by the given token
+Session.findByToken = function(token, callback) {
+    var session = null;
+
+    // Loop through session "database" and see if we have a session with that
+    // token
+    for (var s in database) {
+        if (database.hasOwnProperty(s)) {
+            var current = database[s];
+            if (current.token === token) {
+                session = current;
+                break;
+            }
+        }
+    }
+
+    // simulate latency and trigger callback
+    setTimeout(function() {
+        callback.call(this, null, session);
     }, 50);
 };
 

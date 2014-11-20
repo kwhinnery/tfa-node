@@ -48,7 +48,7 @@ exports.create = function(request, response) {
                     response.redirect('/');
                 } else {
                     // Save session id in HTTP session
-                    request.session.sessionId = newSession.id;
+                    request.session.sessionToken = newSession.token;
 
                     // Redirect to user details page
                     request.flash('success', 'Welcome, '+newUser.fullName+'!');
