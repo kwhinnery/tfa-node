@@ -5,7 +5,7 @@ cfg.port = process.env.PORT || 3000;
 
 // A random string that will help generate secure one-time passwords and
 // HTTP sessions
-cfg.secret = 'keyboard cat';
+cfg.secret = process.env.APP_SECRET || 'keyboard cat';
 
 // Your Twilio account SID and auth token, both found at:
 // https://www.twilio.com/user/account
