@@ -9,7 +9,7 @@ var middleware = function() {
         if (sessionToken) {
             // see if we have a session for this ID
             Session.findByToken(sessionToken, function(err, session) {
-                if (err || !session) return next();
+                if (err || !session || !session.verified) return next();
                 request.user = session.user;
                 response.locals.user = session.user;
                 next();

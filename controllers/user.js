@@ -40,6 +40,9 @@ exports.create = function(request, response) {
         } else {
             // Success! Create authenticated session for user
             var sess = new Session(newUser);
+            // On sign up, don't require the 2FA step to verify
+            sess.verified = true;
+
             sess.save(function(err, newSession) {
                 if (err) {
                     // Problem creating session
