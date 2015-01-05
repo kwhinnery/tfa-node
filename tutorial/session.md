@@ -15,7 +15,7 @@ We require all of our custom controllers and middleware first before setting up 
 ### Creating Users
 These routes handle creating new users and displaying information about logged in users.  When a new user is created, we collect their name, phone number, a password, and their contact preference for 2FA:
 
-![New User Form](/tutorial/images/create-user.png)
+![New User Form](./tutorial/images/create-user.png)
 
 We care mostly about how login works, though, so we won't spend too much time walking through the routes highlighted here.
 </chunk>
