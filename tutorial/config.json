@@ -1,0 +1,5 @@
+{
+    "title": "Two-Factor Authentication with Node.js and Express",
+    "repo": "kwhinnery/tfa-node",
+    "heroku": true
+}
