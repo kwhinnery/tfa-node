@@ -130,7 +130,7 @@
 <li><em>Inheritance Factors</em> (Something a user is, like a person with a unique finger print)</li>
 </ul>
 <p>We&apos;re about to walk you through a sample application that implements a simple login system with a <em>knowledge factor</em> and a <em>posession factor</em>. For the knowledge factor, we will use a standard username/password system. For the possession factor, we will validate that the user has their mobile phone by sending them a one-time passcode in a text message or phone call <a href="http://www.twilio.com/">sent via Twilio</a>. Click on the image below to view a diagram of how this works at a high level:</p>
-<p><img src="/tutorial/images/diagram.png" alt="How Twilio 2FA Works"></p>
+<p><img src="./tutorial/images/diagram.png" alt="How Twilio 2FA Works"></p>
 <h3 id="let-apos-s-go-">Let&apos;s Go!</h3>
 <p>Let&apos;s begin by showing how to run this application locally, after which we&apos;ll dive in to the project&apos;s structure to understand what&apos;s in the box. Click the right arrow button above to move on to the next section of the tutorial.</p>
 </section>
@@ -307,7 +307,7 @@
             <section style="display:none;" data-title="Rendering the Login Form: View" data-file="views/session/create.jade" data-language="jade" data-overallStep='13' class="saurus-step">
               <section class="saurus-step-content"><h2 id="a-login-form">A Login Form</h2>
 <p>This Jade template will render a login form that will prompt the user to enter their username and password. With a little Bootstrap styling, our form will look like this:</p>
-<p><img src="/tutorial/images/login-form.png" alt="The Login Form"></p>
+<p><img src="./tutorial/images/login-form.png" alt="The Login Form"></p>
 </section>
               <section style="display:none;" data-file="views/session/create.jade" data-highlight="8" class="saurus-chunk"><h3 id="a-form-tag-helper">A Form Tag Helper</h3>
 <p>Here we use a <a href="http://jade-lang.com/reference/mixins/">mixin</a> called <code>+formFor</code> to generate an HTML <code>form</code> tag. This handles setting the form action and method on the form tag its self, and embedding a CSRF protection token as a hidden field in the form.</p>
@@ -373,7 +373,7 @@
               <section style="display:none;" data-file="models/Session.js" data-highlight="65-68" class="saurus-chunk"><h3 id="rendering-the-twiml-xml-string">Rendering the TwiML XML String</h3>
 <p>Finally, we convert the TwiML helper object to an XML representation of the TwiML response we just built programmatically.</p>
 <p>Now the verification code should be on its way! In the text message use case, the end user will receive the verification code in a message that looks like this:</p>
-<p><img src="/tutorial/images/code.jpg" alt="a verification code on iPhone"></p>
+<p><img src="./tutorial/images/code.jpg" alt="a verification code on iPhone"></p>
 <p>Now, let&apos;s hop back out to the controller and see how we render the form that the user will enter their one-time password into.</p>
 </section>
             </section>
@@ -391,7 +391,7 @@
             <section style="display:none;" data-title="Rendering the Verification Form: View" data-file="views/session/verify.jade" data-language="jade" data-overallStep='17' class="saurus-step">
               <section class="saurus-step-content"><h2 id="rendering-the-verification-form-view">Rendering the Verification Form: View</h2>
 <p>On this form, the user can enter in their verification code from their mobile device, or request that a new code be sent to them. It should look a little something like this:</p>
-<p><img src="/tutorial/images/confirm.png" alt="A form for validating the one-time password"></p>
+<p><img src="./tutorial/images/confirm.png" alt="A form for validating the one-time password"></p>
 </section>
               <section style="display:none;" data-file="views/session/verify.jade" data-highlight="13-20" class="saurus-chunk"><h3 id="the-form">The Form</h3>
 <p>This form has a single field - the verification code that was sent to the user. This will send an HTTP POST to the server to potentially complete the login process.</p>
@@ -427,7 +427,7 @@
 </section>
               <section style="display:none;" data-file="controllers/session.js" data-highlight="80-84" class="saurus-chunk"><h3 id="rendering-the-user-profile-page">Rendering the User Profile Page</h3>
 <p>Finally, we redirect to the secure user profile page:</p>
-<p><img src="/tutorial/images/success.png" alt="A secure user profile page"></p>
+<p><img src="./tutorial/images/success.png" alt="A secure user profile page"></p>
 <p>Awesome! Our user is now logged into the application.</p>
 <p>Now that the user is logged in, how can we tell elsewhere in our application? On every request, we have configured middleware that will look for a session token on the incoming request to see if there is an authenticated user.  If there is, subsequent controllers can access our User&apos;s information and secure resources based on who is logged in.  Let&apos;s take a look at that middleware next.</p>
 </section>

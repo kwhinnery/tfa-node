@@ -55,7 +55,7 @@ When the `/login` page is requested, we render a Jade template that contains our
 ## A Login Form
 This Jade template will render a login form that will prompt the user to enter their username and password. With a little Bootstrap styling, our form will look like this:
 
-![The Login Form](/tutorial/images/login-form.png)
+![The Login Form](./tutorial/images/login-form.png)
 
 <chunk highlight="8">
 ### A Form Tag Helper
@@ -160,7 +160,7 @@ Finally, we convert the TwiML helper object to an XML representation of the TwiM
 
 Now the verification code should be on its way! In the text message use case, the end user will receive the verification code in a message that looks like this:
 
-![a verification code on iPhone](/tutorial/images/code.jpg)
+![a verification code on iPhone](./tutorial/images/code.jpg)
 
 Now, let's hop back out to the controller and see how we render the form that the user will enter their one-time password into.
 </chunk>
@@ -187,7 +187,7 @@ With a valid session found, we render a Jade template, passing in the ID of the 
 ## Rendering the Verification Form: View
 On this form, the user can enter in their verification code from their mobile device, or request that a new code be sent to them. It should look a little something like this:
 
-![A form for validating the one-time password](/tutorial/images/confirm.png)
+![A form for validating the one-time password](./tutorial/images/confirm.png)
 
 <chunk highlight="13-20">
 ### The Form
@@ -242,7 +242,7 @@ In order to authenticate future requests, we save a unique token string in the H
 ### Rendering the User Profile Page
 Finally, we redirect to the secure user profile page:
 
-![A secure user profile page](/tutorial/images/success.png)
+![A secure user profile page](./tutorial/images/success.png)
 
 Awesome! Our user is now logged into the application.
 

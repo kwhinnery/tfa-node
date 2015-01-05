@@ -8,7 +8,7 @@ Adding two-factor authentication (2FA) to your web application can help increase
 
 We're about to walk you through a sample application that implements a simple login system with a _knowledge factor_ and a _posession factor_. For the knowledge factor, we will use a standard username/password system. For the possession factor, we will validate that the user has their mobile phone by sending them a one-time passcode in a text message or phone call [sent via Twilio](http://www.twilio.com/). Click on the image below to view a diagram of how this works at a high level:
 
-![How Twilio 2FA Works](/tutorial/images/diagram.png)
+![How Twilio 2FA Works](./tutorial/images/diagram.png)
 
 ### Let's Go!
 Let's begin by showing how to run this application locally, after which we'll dive in to the project's structure to understand what's in the box. Click the right arrow button above to move on to the next section of the tutorial.
